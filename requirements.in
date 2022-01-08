@@ -1,0 +1,2 @@
+Django==4.0.1
+pip-tools==6.4.0
