@@ -20,4 +20,4 @@ lint:
 	flake8 --format=pylint --count
 
 test: clean lint
-	pytest -v --cov=src/py_tldr tests
+	DJANGO_SETTINGS_MODULE=wormhole.core.settings pytest -vv -s

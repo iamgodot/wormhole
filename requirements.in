@@ -1,2 +1,7 @@
 Django==4.0.1
 pip-tools==6.4.0
+pybase62==0.4.3
+mysqlclient==2.1.0
+pytest==6.2.5
+pytest-django==4.5.2
+pytest-mock==3.6.1

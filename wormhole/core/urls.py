@@ -13,9 +13,11 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path
+
+from .views import create_short_link, redirect_short_link
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("api/v1/short_links", create_short_link),
+    re_path(r"^[0-9a-zA-Z]{6}/?$", redirect_short_link),
 ]
