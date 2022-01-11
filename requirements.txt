@@ -41,6 +41,8 @@ pytest-django==4.5.2
     # via -r requirements.in
 pytest-mock==3.6.1
     # via -r requirements.in
+python-dotenv==0.19.2
+    # via -r requirements.in
 sqlparse==0.4.2
     # via django
 toml==0.10.2

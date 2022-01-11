@@ -1,8 +1,14 @@
+from os import environ
+
+from dotenv import dotenv_values
+
+config = {**dotenv_values(".env"), **environ}
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure--7p@w^esv%0dz%ee57nve!h62q8xildjpav*4m-=iz!lx$sfvn"
+SECRET_KEY = config["SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config["DEBUG"]
 
 ALLOWED_HOSTS = ["*"]
 
@@ -25,11 +31,11 @@ WSGI_APPLICATION = "wormhole.core.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "HOST": "localhost",
-        "PORT": 3306,
-        "USER": "",
-        "PASSWORD": "",
-        "NAME": "",
+        "HOST": config["MYSQL_HOST"],
+        "PORT": config["MYSQL_PORT"],
+        "USER": config["MYSQL_USER"],
+        "PASSWORD": config["MYSQL_PASSWORD"],
+        "NAME": config["MYSQL_DB"],
         "OPTIONS": {
             "charset": "utf8",
             "init_command": "SET sql_mode='STRICT_TRANS_TABLES'",
@@ -49,4 +55,4 @@ USE_TZ = True
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-BASE_URL = "wormhole.com"
+BASE_URL = config["BASE_URL"]
